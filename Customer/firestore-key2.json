@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "festive-athlete-423809-g7",
+  "private_key_id": "161a5565635ee26737a0947ecd9bfa1b6fe20c02",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDDeNV6aMEA0yJO\nSbrJd7S7Yd8vOmQRJdBJCckvX40LlLdtPniupagErHTo1TBw1purO7Z6oEQhKsod\n/OQkcsibrlHYOZvDMqh/lDg35hrGfi1Dusm54JPzTvRbLaR+k773oIQmpoC8fv49\n5MI0K+7ao/1lSDr18aWlGU2Ir5V8Cd9EsuZZ9DHlPvESRpuQknfdEd1icSaHyLSu\nmFnxN+mOH51+0eufgjXgh933eJ90GOYDcvNLjwTElqtrsI4QJqgWbzV044ErMvbA\nj8u5cbqsOLHskl/L4wpcnxkrb83lTRVKsrkOVvFiO6TlBE0ug020zIp0QZ+tIbwL\nUGgl9vuFAgMBAAECggEAHOj4rd+ODWNXXhEn3UHlSuzT7QYWTwudgsfoklHv/ZKp\nDwZfzqN1NlJpV2xR0JvfryjS5CUNnoLXx4KjyBjqlE0+ZpvymSFGFtm4TNrYApvJ\nHGIlEWbmiuRBCLaMmc9GkxTm/APBON+8FjGzYAhQDdSWQXi4MQWPNFwJ1xmc+Biy\nhiUZHlnvoAVCOlGzHjcf13d2pkjUkHp0PZ1hm2fA8Pi1F25REqUTgLjkcPd+mb7V\nvR+KZW0MPxuiXv8BvwNmbURKjIao1waFUIzPJ/OdAWCTuRPfnmC/GcDe1kkclO/Q\nt5j99p3RLotGvGhdCcRhrJqmnMjqfplqhJWY2IrGOwKBgQD3Gd4FcJ5JLGTATbQh\nvy7bUfTJcwZ0Sq+ZDzB+cArG0SgGlDuZzjaB9xUKxFIcaGXn5gN/2iMmj6eNaVgG\noyvzOwPWfvlSGoVrNEnSE5kcrSEmWTXLZwdPKYFRJjBEW5hSMj4UpMe+IvbVsAb1\nIutTGhTWlGkU8uQ+5fwAEeT3KwKBgQDKgvnWrI2SSbd+JFrDUF0ZgGMPbPD2P5JK\nS0GU53QF72QhHTKv+YijcyadiSxywJ45mUHXs3tYR6msezYeFpavJvsOuB2fkn9T\nQT6VWTuw/aVe/mUoe+6f6rXqqL58i/QqxVaX6ZyETFWspbt3g+hsvtSwC+ULbwBS\nWKpwTmWADwKBgFxudamtRdhzXcC9kEsrW9i4oIuWlmx735Gup+I0ASP76zAC1QSk\nqakWBu3/IAP2XWBQnzB9Jbbv96ojJMVe1jrm8XmUB6lZuFyws4h8wkKC1KqmpkPO\n52IKUZBMa7O2W5UrrCNGvFz4cULf1Mpv5H0yfWcDHweyEAUjPI++Idr/AoGAKz66\n8W/Zr5KUX5iN1UWVC/wRq1qdPkinCbx2XcDrUtUjMbsVduS3nAfcCCoh1sNxRmWG\n3PQT8+8huZZ6IQS72t1dIXCJyuiyzemR3ry2dX5E0TtMCNAmTfoGLP0p6FjOpE+N\nxVT6unm+leayWLxPZuF9c7ami8GBdRRAGUl0fVsCgYBqUFgNHUhaRoViHCLAyWZ/\nkdr20x+VEj5r5Gng7kRKssWVTvadqkXW3z5mlpVTrwH/tgB17PTr0vCsvbYrksho\nuK3g/kFGCWKvAnaQh+K2T4B6PBVddi4ErR3RyzyLnMRCrW7XGCvDEqvuZxbClRmW\nRmaLTm7HfnmcHWTRdWDMzw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firestore-access@festive-athlete-423809-g7.iam.gserviceaccount.com",
+  "client_id": "105047202811695435260",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firestore-access%40festive-athlete-423809-g7.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

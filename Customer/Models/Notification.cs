@@ -1,10 +1,13 @@
-﻿namespace Customer.Models
+﻿using Google.Cloud.Firestore;
+
+namespace Customer.Models
 {
+    [FirestoreData]
     public class Notification
     {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
-        public string UserId { get; set; }
-        public string Message { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        [FirestoreProperty] public string Id { get; set; } = Guid.NewGuid().ToString();
+        [FirestoreProperty] public string UserId { get; set; }
+        [FirestoreProperty] public string Message { get; set; }
+        [FirestoreProperty] public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

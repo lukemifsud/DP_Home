@@ -1,10 +1,7 @@
 
-using BookingMicroservice.Services;
-using Customer.Data;
-using Customer.Services;
-using Microsoft.EntityFrameworkCore;
+using PaymentMicroservice.Services;
 
-namespace Customer
+namespace PaymentMicroservice
 {
     public class Program
     {
@@ -12,23 +9,13 @@ namespace Customer
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key3.json");
-
-            builder.Services.AddSingleton<CustomerService>();
-            //builder.Services.AddSingleton<BookingService>();
+            // Add services to the container.
+            builder.Services.AddSingleton<PaymentService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
-            //builder.Services.AddDbContext<AppDbContext>(options =>
-            // options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-            //builder.Services.AddDbContext<AppDbContext>(options =>
-                //options.UseInMemoryDatabase("CustomerDB"));
-
-            //builder.Services.AddScoped<CustomerService>();
 
             var app = builder.Build();
 
