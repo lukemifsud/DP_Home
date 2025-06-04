@@ -9,7 +9,7 @@ namespace PaymentMicroservice
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key3.json");
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key4.json");
             // Add services to the container.
             builder.Services.AddSingleton<PaymentService>();
             builder.Services.AddControllers();

@@ -6,16 +6,20 @@ namespace BookingMicroservice.Services
     public class BookingService
     {
         private readonly FirestoreDb _db;
+        private readonly PubSubService _pubSubService;
 
-        public BookingService()
+        public BookingService(IConfiguration configuration, PubSubService pubSubService)
         {
             _db = FirestoreDb.Create("festive-athlete-423809-g7");
+            _pubSubService = pubSubService;
         }
 
         //add collection to firestore db
         public async Task AddBookingAsync(Models.Booking booking)
         {
             await _db.Collection("bookings").Document(booking.Id).SetAsync(booking);
+            await _pubSubService.PublishBookingEventAsync(booking.UserId, booking.Id);
+
         }
 
         public async Task<List<Models.Booking>> GetBookingsByUserAsync(string userId, bool past)

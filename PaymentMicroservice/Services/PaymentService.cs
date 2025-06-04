@@ -14,7 +14,7 @@ namespace PaymentMicroservice.Services
         public PaymentService(IConfiguration configuration)
         {
             _configuration = configuration;
-            _db = FirestoreDb.Create("festive-athlete-423809"); 
+            _db = FirestoreDb.Create("festive-athlete-423809-g7"); 
         }
 
         

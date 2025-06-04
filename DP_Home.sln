@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CabBookingPlatformWebApp", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer", "Customer\Customer.csproj", "{0C89A5B1-F53C-4FBD-B258-265EC26311A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingMicroservice", "Booking\BookingMicroservice.csproj", "{4106F92B-3A80-4D77-972F-FC0E43DCD416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingMicroservice", "Booking\BookingMicroservice.csproj", "{4106F92B-3A80-4D77-972F-FC0E43DCD416}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentMicroservice", "PaymentMicroservice\PaymentMicroservice.csproj", "{70425207-91C0-4D3B-B962-1DDA6DAD67BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentMicroservice", "PaymentMicroservice\PaymentMicroservice.csproj", "{70425207-91C0-4D3B-B962-1DDA6DAD67BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationMicroservice", "LocationMicroservice\LocationMicroservice.csproj", "{1D9EC5F8-25CF-4050-A544-AF2EFC9DA2C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountNotifier", "DiscountNotifier\DiscountNotifier.csproj", "{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{70425207-91C0-4D3B-B962-1DDA6DAD67BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70425207-91C0-4D3B-B962-1DDA6DAD67BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70425207-91C0-4D3B-B962-1DDA6DAD67BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D9EC5F8-25CF-4050-A544-AF2EFC9DA2C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D9EC5F8-25CF-4050-A544-AF2EFC9DA2C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D9EC5F8-25CF-4050-A544-AF2EFC9DA2C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D9EC5F8-25CF-4050-A544-AF2EFC9DA2C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

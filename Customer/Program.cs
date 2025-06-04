@@ -13,7 +13,7 @@ namespace Customer
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key3.json");
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key4.json");
 
             builder.Services.AddSingleton<CustomerService>();
             //builder.Services.AddSingleton<BookingService>();

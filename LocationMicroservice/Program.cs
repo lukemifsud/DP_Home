@@ -1,17 +1,18 @@
 
-using BookingMicroservice.Services;
+using LocationMicroservice.Services;
 
-namespace Booking
+namespace LocationMicroservice
 {
     public class Program
     {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key4.json");
             // Add services to the container.
-            builder.Services.AddScoped<BookingService>();
-            builder.Services.AddScoped<PubSubService>();
+            builder.Services.AddSingleton<LocationService>();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

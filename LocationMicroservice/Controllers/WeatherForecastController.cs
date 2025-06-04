@@ -1,7 +1,6 @@
-/*
 using Microsoft.AspNetCore.Mvc;
 
-namespace Booking.Controllers
+namespace LocationMicroservice.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -32,4 +31,3 @@ namespace Booking.Controllers
         }
     }
 }
-*/
