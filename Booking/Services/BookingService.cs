@@ -18,7 +18,7 @@ namespace BookingMicroservice.Services
         public async Task AddBookingAsync(Models.Booking booking)
         {
             await _db.Collection("bookings").Document(booking.Id).SetAsync(booking);
-            await _pubSubService.PublishBookingEventAsync(booking.UserId, booking.Id);
+            await _pubSubService.PublishBookingEventAsync(booking.UserId, booking.Id, booking.StartLocation, booking.EndLocation);
 
         }
 

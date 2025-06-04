@@ -1,4 +1,5 @@
-﻿using Google.Cloud.PubSub.V1;
+﻿using Google.Cloud.Firestore;
+using Google.Cloud.PubSub.V1;
 using Google.Protobuf;
 using System.Text.Json;
 
@@ -15,16 +16,20 @@ namespace BookingMicroservice.Services
             _topicId = configuration["PubSub:TopicId"];
         }
 
-        public async Task PublishBookingEventAsync(string userId, string bookingId)
+        public async Task PublishBookingEventAsync(string userId, string bookingId, string startLocation, string endLocation)
         {
             var topicName = TopicName.FromProjectTopic(_projectId, _topicId);
             var publisher = await PublisherClient.CreateAsync(topicName);
+
 
             var payload = new
             {
                 userId = userId,
                 bookingId = bookingId,
-                timestamp = DateTime.UtcNow
+                startLocation = startLocation,
+                endLocation = endLocation,
+                timestamp = DateTime.UtcNow,
+                
             };
 
             string json = JsonSerializer.Serialize(payload);

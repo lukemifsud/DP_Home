@@ -27,48 +27,52 @@ namespace DiscountNotifier
 
         public async Task HandleAsync(CloudEvent cloudEvent, CancellationToken cancellationToken)
         {
-
             _logger.LogInformation("🚀 Cloud Function triggered.");
-            _logger.LogInformation("Event Type: {type}", cloudEvent.Type);
-            _logger.LogInformation("Raw CloudEvent.Data: {data}", cloudEvent.Data?.ToString());
-
-            if (cloudEvent.Data is not JsonElement jsonElement)
-            {
-                _logger.LogWarning("CloudEvent.Data is not a valid JsonElement.");
-                return;
-            }
+            _logger.LogInformation("Raw cloudEvent.Data: {data}", cloudEvent.Data?.ToString());
 
             try
             {
-                // Step 1: Deserialize Data as string -> JSON
-                var outer = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(cloudEvent.Data?.ToString() ?? "");
-                if (outer == null || !outer.ContainsKey("message"))
+                // Step 1: Deserialize the outer envelope (which contains "message")
+                var envelope = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(cloudEvent.Data?.ToString() ?? "");
+
+                if (envelope == null || !envelope.TryGetValue("message", out JsonElement messageElement))
                 {
-                    _logger.LogWarning(" Outer envelope is missing 'message' field.");
+                    _logger.LogWarning("⚠️ Pub/Sub envelope missing 'message' field.");
                     return;
                 }
 
-                // Step 2: Deserialize to PubSubEnvelope
-                var envelope = outer["message"].Deserialize<PubSubMessage>();
-                if (envelope?.Data == null)
+                // Step 2: Deserialize the "message" object which contains "data"
+                var pubsubMessage = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(messageElement.ToString());
+
+                if (pubsubMessage == null || !pubsubMessage.TryGetValue("data", out JsonElement dataElement))
                 {
-                    _logger.LogWarning("Pub/Sub envelope or data missing.");
+                    _logger.LogWarning("⚠️ Pub/Sub 'data' field missing.");
                     return;
                 }
 
-                var decodedJson = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(envelope.Data));
-                _logger.LogInformation("Decoded payload: {decodedJson}", decodedJson);
+                // Step 3: Decode the base64-encoded data
+                var base64Data = dataElement.GetString();
+                if (string.IsNullOrEmpty(base64Data))
+                {
+                    _logger.LogWarning("⚠️ 'data' field is empty.");
+                    return;
+                }
 
+                var decodedJson = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(base64Data));
+                _logger.LogInformation("✅ Decoded JSON payload: {json}", decodedJson);
+
+                // Step 4: Parse the decoded JSON
                 var payload = JsonSerializer.Deserialize<Dictionary<string, string>>(decodedJson);
-                if (payload is null || !payload.ContainsKey("userId"))
+
+                if (payload == null || !payload.TryGetValue("userId", out string userId))
                 {
-                    _logger.LogWarning(" Payload missing or malformed.");
+                    _logger.LogWarning("⚠️ Payload malformed or missing 'userId'.");
                     return;
                 }
 
-                string userId = payload["userId"];
-                _logger.LogInformation(" Updating booking count for: {userId}", userId);
+                _logger.LogInformation("🔁 Handling booking for user: {userId}", userId);
 
+                // Step 5: Firestore update
                 var docRef = _firestore.Collection("user-booking-status").Document(userId);
                 var snapshot = await docRef.GetSnapshotAsync();
 
@@ -80,7 +84,7 @@ namespace DiscountNotifier
 
                 if (status.Count == 3 && !status.Notified)
                 {
-                    _logger.LogInformation($" Discount activated for {userId}");
+                    _logger.LogInformation("🎉 Sending discount notification for {userId}", userId);
                     status.Notified = true;
                 }
 
@@ -88,7 +92,7 @@ namespace DiscountNotifier
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Unhandled error in DiscountNotifier.");
+                _logger.LogError(ex, "❌ Unhandled exception in function.");
             }
         }
     }

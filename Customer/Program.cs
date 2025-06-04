@@ -16,8 +16,10 @@ namespace Customer
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key4.json");
 
             builder.Services.AddSingleton<CustomerService>();
+
             //builder.Services.AddSingleton<BookingService>();
             builder.Services.AddControllers();
+            builder.Services.AddHostedService<Customer.Services.NotificationSubscriber>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationMicroservice", "Loc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountNotifier", "DiscountNotifier\DiscountNotifier.csproj", "{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelayNotifier", "DelayNotifier\DelayNotifier.csproj", "{B68071FD-8B6F-41D7-95DF-926B28A53267}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D16F820-F2A2-4614-AA3F-6D5B599BEE12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68071FD-8B6F-41D7-95DF-926B28A53267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68071FD-8B6F-41D7-95DF-926B28A53267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68071FD-8B6F-41D7-95DF-926B28A53267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68071FD-8B6F-41D7-95DF-926B28A53267}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
