@@ -44,7 +44,7 @@ namespace Customer.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginUserDto dto)
+        public async Task<IActionResult> Login([FromBody] LoginUserDto dto)
         {
             var user = await _service.AuthenticateAsync(dto.Email, dto.Password);
             if (user == null)

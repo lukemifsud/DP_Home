@@ -1,8 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    var userEmail = Context.Session.GetString("UserEmail");
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (string.IsNullOrEmpty(userEmail))
+{
+    <h2>Welcome to the Cab Booking Platform</h2>
+    <p>Please <a asp-controller="Account" asp-action="Login">log in</a> to access the dashboard.</p>
+}
+else
+{
+    @if (!string.IsNullOrEmpty(userEmail))
+    {
+        <p>Hello, @userEmail</p>
+    }
+    <h2>Welcome to the Dashboard</h2>
+    <p>Select an action: Book a cab, view past bookings, etc.</p>
+}

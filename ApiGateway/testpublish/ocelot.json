@@ -1,0 +1,19 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/customer/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customer-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/customer/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://apigateway-url-placeholder"
+  }
+}

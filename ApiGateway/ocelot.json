@@ -1,0 +1,33 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/customer/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customer-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/customer/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/customer/{everything}/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customer-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/customer/{everything}/{id}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "RouteIsCaseSensitive": false
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://apigateway-1081298060984.europe-west1.run.app"
+  }
+}
