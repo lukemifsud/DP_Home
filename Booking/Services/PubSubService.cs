@@ -26,8 +26,8 @@ namespace BookingMicroservice.Services
             {
                 userId = userId,
                 bookingId = bookingId,
-                startLocation = startLocation,
-                endLocation = endLocation,
+                pickup = startLocation,
+                dropoff = endLocation,
                 timestamp = DateTime.UtcNow,
                 
             };
