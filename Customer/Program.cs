@@ -12,6 +12,14 @@ namespace Customer
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Required for Cloud Run
+            /*
+            builder.WebHost.ConfigureKestrel(serverOptions =>
+            {
+                serverOptions.ListenAnyIP(8080);
+            });
+            */
+
             // Add services to the container.
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key4.json");
 

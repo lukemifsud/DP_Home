@@ -15,7 +15,7 @@ namespace BookingMicroservice.Controllers
             _service = service;
         }
 
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateBooking(CreateBooking dto)
         {
             var booking = new Models.Booking

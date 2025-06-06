@@ -14,14 +14,29 @@ namespace CabBookingPlatformWebApp.Services
             _httpClient.BaseAddress = new Uri("https://apigateway-1081298060984.europe-west1.run.app"); //gateway url
         }
 
-        public async Task<bool> LoginAsync(LoginUserDto loginUser)
+        public async Task<UserDto?> LoginAsync(LoginUserDto loginUser)
         {
             var jsonContent = JsonSerializer.Serialize(loginUser);
             var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsJsonAsync("/api/customer/login", content);
+            Console.WriteLine("Sending JSON:");
+            Console.WriteLine(jsonContent);
 
-            return response.IsSuccessStatusCode;
+            var response = await _httpClient.PostAsJsonAsync("/api/customer/login", loginUser);
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
+            return await response.Content.ReadFromJsonAsync<UserDto>();
+        }
+
+        public async Task<UserDto?> RegisterAsync(RegisterUserDto registerUser)
+        {
+            var response = await _httpClient.PostAsJsonAsync("/api/customer/Register", registerUser);
+            if (!response.IsSuccessStatusCode)
+                return null;
+
+            return await response.Content.ReadFromJsonAsync<UserDto>();
         }
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Customer.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/customer")]
     public class CustomerController : ControllerBase
     {
         /*
@@ -44,8 +44,14 @@ namespace Customer.Controllers
         }
 
         [HttpPost("login")]
+        [Consumes("application/json")]
         public async Task<IActionResult> Login([FromBody] LoginUserDto dto)
         {
+            if (dto == null)
+            {
+                return BadRequest(new { message = "DTO binding failed. Is your JSON and Content-Type correct?" });
+            }
+
             var user = await _service.AuthenticateAsync(dto.Email, dto.Password);
             if (user == null)
                 return Unauthorized(new { message = "Invalid credentials." });
@@ -70,6 +76,11 @@ namespace Customer.Controllers
             return Ok(notifications);
         }
 
+        [HttpGet("login/test")]
+        public IActionResult LoginTest()
+        {
+            return Ok("Login route is reachable.");
+        }
 
     }
 }

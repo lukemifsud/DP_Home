@@ -8,6 +8,16 @@ namespace Booking
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Required for Cloud Run
+            if (builder.Environment.IsProduction())
+            {
+                builder.WebHost.ConfigureKestrel(options =>
+                {
+                    options.ListenAnyIP(8080); // Cloud Run only
+                });
+            }
+
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "firestore-key4.json");
             // Add services to the container.
             builder.Services.AddScoped<BookingService>();

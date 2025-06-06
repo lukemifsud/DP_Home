@@ -11,6 +11,7 @@ namespace CabBookingPlatformWebApp
             // Add services to the container.
 
             builder.Services.AddHttpClient<CustomerMicroservice>();
+            builder.Services.AddHttpClient<BookingMicroservice>();
             builder.Services.AddControllersWithViews();
             builder.Services.AddSession();
             var app = builder.Build();

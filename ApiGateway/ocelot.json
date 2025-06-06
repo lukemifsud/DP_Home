@@ -1,6 +1,32 @@
 {
   "Routes": [
     {
+      "DownstreamPathTemplate": "/api/customer/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customer-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/customer/login",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/customer/Register",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customer-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/customer/Register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
       "DownstreamPathTemplate": "/api/customer/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
@@ -24,6 +50,58 @@
       ],
       "UpstreamPathTemplate": "/api/customer/{everything}/{id}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/booking/create",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "booking-1081298060984.europe-west1.run.app", 
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/booking/create",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/booking/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "booking-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/booking/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/booking/current/{userId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "booking-1081298060984.europe-west1.run.app", // 👈 your deployed booking service URL (no https://)
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/booking/current/{userId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/booking/past/{userId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "booking-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/booking/past/{userId}",
+      "UpstreamHttpMethod": [ "GET" ],
       "RouteIsCaseSensitive": false
     }
   ],

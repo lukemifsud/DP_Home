@@ -1,0 +1,29 @@
+﻿@model List<BookingViewModel>
+
+<h2>Current Bookings</h2>
+@if (Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Time</th>
+            <th>Cab Type</th>
+            <th>Passengers</th>
+        </tr>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.StartLocation</td>
+                <td>@b.EndLocation</td>
+                <td>@b.BookingDateTime</td>
+                <td>@b.CabType</td>
+                <td>@b.Passengers</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No upcoming bookings.</p>
+}
