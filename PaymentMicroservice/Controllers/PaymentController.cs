@@ -44,5 +44,17 @@ namespace PaymentMicroservice.Controllers
                 }
             });
         }
+
+        [HttpGet("get{paymentId}")]
+        public async Task<IActionResult> GetPaymentDetailsById(string paymentId)
+        {
+            var payment = await _paymentService.GetPaymentDetailsById(paymentId);
+            if(payment == null)
+            {
+                return NotFound(new { message = "Payment not found." });
+            }
+
+            return Ok(payment);
+        }
     }
 }
