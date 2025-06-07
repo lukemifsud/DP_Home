@@ -32,12 +32,17 @@ namespace CabBookingPlatformWebApp.Controllers
         public async Task<IActionResult> AddLocation(FavoriteLocation location)
         {
             location.UserId = HttpContext.Session.GetString("UserId");
+            if (string.IsNullOrEmpty(location.Id))
+            {
+                location.Id = Guid.NewGuid().ToString();
+            }
             var response = await _httpClient.PostAsJsonAsync($"{_apiBaseUrl}/add", location);
+            
             if (response.IsSuccessStatusCode)
                 return RedirectToAction("Index");
 
             ModelState.AddModelError("", "Failed to add location");
-            return View(location);
+            return View("Add", location); // ✅ explicitly point to the correct view name
         }
 
         public async Task<IActionResult> EditLocation(string id)

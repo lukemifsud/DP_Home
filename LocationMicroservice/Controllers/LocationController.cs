@@ -19,6 +19,7 @@ namespace LocationMicroservice.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> AddLocation([FromBody] FavoriteLocationDTO dto)
         {
+            
             await _locationService.AddLocationAsync(dto);
             return Ok(new { message = "Location added successfully." });
         }

@@ -11,12 +11,13 @@ namespace LocationMicroservice.Services
         private readonly FirestoreDb _firestoreDb;
         private readonly IConfiguration _configuration;
         private readonly HttpClient _httpClient;
-        public LocationService(IConfiguration configuration)
+        private readonly ILogger<LocationService> _logger;
+        public LocationService(IConfiguration configuration, ILogger<LocationService> logger)
         {
             _firestoreDb = FirestoreDb.Create("festive-athlete-423809-g7");
             _configuration = configuration;
             _httpClient = new HttpClient();
-
+            _logger = logger;   
         }
 
 
@@ -34,6 +35,7 @@ namespace LocationMicroservice.Services
             };
 
             var docRef = _firestoreDb.Collection("locations").Document(location.Id);
+            location.Id = docRef.Id;
             await docRef.SetAsync(location);
         }
 
@@ -98,9 +100,13 @@ namespace LocationMicroservice.Services
             _httpClient.DefaultRequestHeaders.Add("X-RapidAPI-Host", "weatherapi-com.p.rapidapi.com");
 
             var response = await _httpClient.GetAsync(url);
-
+            _logger.LogError("Weather request URL: " + url);
+            _logger.LogError("Loaded API Key: " + apiKey);
             if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogError("Weather API failed: " + response.StatusCode);
                 return null;
+            };
 
             var json = await response.Content.ReadAsStringAsync();
             using var doc = JsonDocument.Parse(json);
