@@ -57,7 +57,7 @@ namespace CabBookingPlatformWebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register (RegisterUserDto registerUser)
+        public async Task<IActionResult> Register(RegisterUserDto registerUser)
         {
             var user = await _customerService.RegisterAsync(registerUser);
             if (user == null)

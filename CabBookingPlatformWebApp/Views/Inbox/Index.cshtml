@@ -1,0 +1,20 @@
+﻿@model List<Notification>
+
+<h2>Your Notifications</h2>
+
+@if (!Model.Any())
+{
+    <p>No notifications available.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var notif in Model)
+        {
+            <li class="list-group-item">
+                <div><strong>@notif.Timestamp.ToString("g")</strong></div>
+                <div>@notif.Message</div>
+            </li>
+        }
+    </ul>
+}

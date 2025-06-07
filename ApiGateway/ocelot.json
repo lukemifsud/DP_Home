@@ -103,6 +103,71 @@
       "UpstreamPathTemplate": "/api/booking/past/{userId}",
       "UpstreamHttpMethod": [ "GET" ],
       "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/Location/add",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "locationmicroservice-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Location/add",
+      "UpstreamHttpMethod": [ "POST" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/Location/user/{userId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "locationmicroservice-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Location/user/{userId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/Location/delete/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "locationmicroservice-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Location/delete/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/Location/update/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "locationmicroservice-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Location/update/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "RouteIsCaseSensitive": false
+    },
+    {
+      "DownstreamPathTemplate": "/api/Location/weather/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "locationmicroservice-1081298060984.europe-west1.run.app",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Location/weather/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "RouteIsCaseSensitive": false
     }
   ],
   "GlobalConfiguration": {

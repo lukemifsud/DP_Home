@@ -41,7 +41,7 @@ namespace Customer.Services
                     else
                     {
                         _logger.LogInformation("Deserialized: {UserId}", notification.UserId);
-                        await _customerService.AddNotificationAsync(notification);
+                        //await _customerService.AddNotificationAsync(notification);
                         _logger.LogInformation("Notification saved to Firestore.");
                     }
 

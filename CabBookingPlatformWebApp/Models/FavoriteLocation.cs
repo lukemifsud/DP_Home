@@ -1,6 +1,6 @@
-﻿namespace LocationMicroservice.DTOs
+﻿namespace CabBookingPlatformWebApp.Models
 {
-    public class FavoriteLocationDTO
+    public class FavoriteLocation
     {
         public string Id { get; set; }
         public string UserId { get; set; }

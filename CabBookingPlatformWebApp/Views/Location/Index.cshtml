@@ -1,0 +1,37 @@
+﻿@model List<CabBookingPlatformWebApp.Models.FavoriteLocation>
+
+@{
+    ViewData["Title"] = "My Favourite Locations";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a class="btn btn-primary mb-3" href="@Url.Action("Add")">Add New Location</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var loc in Model)
+        {
+            <tr>
+                <td>@loc.Name</td>
+                <td>@loc.Address</td>
+                <td>@loc.Latitude</td>
+                <td>@loc.Longitude</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" href="@Url.Action("EditLocation", new { id = loc.Id })">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="@Url.Action("DeleteLocation", new { id = loc.Id })">Delete</a>
+                    <a class="btn btn-sm btn-info" href="@Url.Action("Weather", new { id = loc.Id })"> Check Weather Forecast</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

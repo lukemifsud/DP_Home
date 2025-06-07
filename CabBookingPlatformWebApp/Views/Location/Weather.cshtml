@@ -1,0 +1,18 @@
+﻿@model CabBookingPlatformWebApp.Models.WeatherForecast
+
+@{
+    ViewData["Title"] = "Weather Forecast";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.LocationName, @Model.Region, @Model.Country</h5>
+        <p><strong>Condition:</strong> @Model.Condition</p>
+        <p><strong>Temperature:</strong> @Model.TemperatureC °C</p>
+        <p><strong>Wind:</strong> @Model.WindKph km/h</p>
+        <p><strong>Humidity:</strong> @Model.Humidity%</p>
+        <a class="btn btn-secondary" href="@Url.Action("Index")">Back to Locations</a>
+    </div>
+</div>

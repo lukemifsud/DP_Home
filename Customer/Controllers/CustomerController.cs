@@ -40,7 +40,15 @@ namespace Customer.Controllers
                 return BadRequest(new { message = "User already exists." });
             }
 
-            return Ok(new { message = "User registered successfully." });
+            var userDto = new UserDto
+            {
+                Id = user.Id,
+                Name = user.Name,
+                LastName = user.LastName,
+                Email = user.Email
+            };
+
+            return Ok(userDto);
         }
 
         [HttpPost("login")]

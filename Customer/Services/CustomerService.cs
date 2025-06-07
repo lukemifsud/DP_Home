@@ -59,11 +59,12 @@ namespace Customer.Services
             var snapshot = await query.GetSnapshotAsync();
             return snapshot.Count > 0 ? snapshot.Documents[0].ConvertTo<User>() : null;
         }
-
+        /*
         public async Task AddNotificationAsync(Notification notification)
         {
             notification.Id = Guid.NewGuid().ToString();
             await _db.Collection("notifications").Document(notification.Id).SetAsync(notification);
         }
+        */
     }
 }

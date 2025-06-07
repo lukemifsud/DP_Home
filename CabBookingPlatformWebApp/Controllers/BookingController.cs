@@ -24,6 +24,8 @@ namespace CabBookingPlatformWebApp.Controllers
         {
             booking.UserId = HttpContext.Session.GetString("UserId");
 
+            Console.WriteLine($"[CREATE POST] Booking received at {DateTime.UtcNow} for UserID: {booking.UserId}");
+
             var success = await _bookingService.CreateBookingAsync(booking);
             if (!success)
             {

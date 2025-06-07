@@ -68,9 +68,15 @@ namespace LocationMicroservice.Services
             var snapshot = await query.GetSnapshotAsync();
 
             return snapshot.Documents
-                .Select(d => d.ConvertTo<Models.FavoriteLocation>())
+                .Select(d =>
+                {
+                    var location = d.ConvertTo<Models.FavoriteLocation>();
+                    location.Id = d.Id; //
+                    return location;
+                })
                 .Select(m => new FavoriteLocationDTO
                 {
+                    Id = m.Id,
                     UserId = m.UserId,
                     Name = m.Name,
                     Address = m.Address,
